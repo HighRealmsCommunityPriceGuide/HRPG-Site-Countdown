@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HRPG · 7pm GMT</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}body{background:#0b1420;min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif;padding:16px}.card{background:#0c1623;border-radius:48px 24px;padding:32px 40px;box-shadow:0 0 0 1px #ffd28f40,0 30px 45px #00000080;border:1px solid #ffb86b30;max-width:700px}.header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:24px}h1{font-size:2.8rem;background:linear-gradient(135deg,#ffdbb5,#ffad60);-webkit-background-clip:text;background-clip:text;color:transparent}.pill{background:#1f3245;border-radius:60px;padding:8px 20px;color:#c9def5;border:1px solid #557c9e;display:flex;gap:10px}.pill span{font-weight:700;color:#ffe39c;background:#1f2e3c;padding:4px 16px;border-radius:40px}.target{background:#0d1a26;border-radius:48px 16px;padding:24px 32px;margin:20px 0;border:1px solid #eac084}.target p{font-size:1.2rem;color:#9bc2de;letter-spacing:4px;margin-bottom:8px}.target h2{font-size:5rem;color:#ffeac2;text-shadow:0 0 25px #feb45a}.grid{display:flex;gap:16px;margin:32px 0 16px;flex-wrap:wrap}.unit{background:#0d1c2b;border:1px solid #ffc285;border-radius:32px 12px;padding:20px;flex:1;min-width:100px;text-align:center}.unit div:first-child{font-size:4rem;font-weight:700;color:#ffdaa7;text-shadow:0 0 20px #ffac4d}.unit div:last-child{font-size:1.2rem;color:#b0cbe5;text-transform:uppercase;letter-spacing:2px}.footnote{display:flex;justify-content:space-between;border-top:1px dashed #5f7f9b;padding-top:16px;margin-top:8px;color:#7d9bb9}.live{display:flex;align-items:center;gap:8px}.dot{width:12px;height:12px;background:#7affa0;border-radius:50%;box-shadow:0 0 12px #26ff9e;animation:pulse 1.6s infinite}@keyframes pulse{0%{opacity:.4}50%{opacity:1}100%{opacity:.4}}
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="header">
+        <h1>HRPG RELEASE</h1>
+        <div class="pill"><span id="current">13:18</span>GMT</div>
+    </div>
+    <div class="target">
+        <p>🚀 TARGET GMT</p>
+        <h2>7:00<span style="font-size:2rem;margin-left:12px;">PM</span></h2>
+    </div>
+    <div class="grid">
+        <div class="unit"><div id="days">00</div><div>days</div></div>
+        <div class="unit"><div id="hours">00</div><div>hours</div></div>
+        <div class="unit"><div id="minutes">00</div><div>minutes</div></div>
+        <div class="unit"><div id="seconds">00</div><div>seconds</div></div>
+    </div>
+    <div class="footnote">
+        <div class="live"><span class="dot"></span>live</div>
+        <div>⏱️ 13:18 GMT (your now)</div>
+    </div>
+</div>
+<script>
+    (function(){function u(){let e=new Date;document.getElementById('current').textContent=e.getUTCHours().toString().padStart(2,'0')+':'+e.getUTCMinutes().toString().padStart(2,'0');let t=new Date(Date.UTC(e.getUTCFullYear(),e.getUTCMonth(),e.getUTCDate(),19,0,0,0));e>=t&&t.setUTCDate(t.getUTCDate()+1);let n=Math.floor((t-e)/1e3);n<=0?['days','hours','minutes','seconds'].forEach(i=>document.getElementById(i).textContent='00'):(document.getElementById('days').textContent=Math.floor(n/86400).toString().padStart(2,'0'),document.getElementById('hours').textContent=Math.floor((n%86400)/3600).toString().padStart(2,'0'),document.getElementById('minutes').textContent=Math.floor((n%3600)/60).toString().padStart(2,'0'),document.getElementById('seconds').textContent=(n%60).toString().padStart(2,'0'))}u(),setInterval(u,1000)})();
+</script>
+</body>
+</html>
